@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
 
-  before_action :find_post, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate, only: [:admin, :new, :create, :edit, :update, :destroy]
 
   def index
     if params[:category].blank?
@@ -44,6 +44,18 @@ class PostsController < ApplicationController
     @post.destroy
     flash[:success] = "Post destroyed"
     redirect_to @root_path
+  end
+
+  def admin 
+    redirect_to root_path if authenticate
+  end
+
+  protected
+
+  def authenticate
+    authenticate_or_request_with_http_basic do |username, password|
+       username == Rails.application.credentials.admin[:username] && password == Rails.application.credentials.admin[:password]
+    end
   end
 
   private
