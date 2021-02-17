@@ -1,6 +1,7 @@
 class PostsController < ApplicationController
 
   before_action :authenticate, only: [:admin, :new, :create, :edit, :update, :destroy]
+  before_action :find_post, only: [:show, :edit, :update, :destroy]
 
   def index
     if params[:category].blank?
@@ -24,7 +25,7 @@ class PostsController < ApplicationController
       flash[:success] = "The post was created!"
       redirect_to @post  
     else 
-      render ‘new’
+      render 'new'
     end 
   end
 
@@ -36,14 +37,14 @@ class PostsController < ApplicationController
       flash[:success] = "Update successful"
       redirect_to @post  
     else
-      render ‘edit’
+      render 'edit'
     end
   end
 
   def destroy
     @post.destroy
     flash[:success] = "Post destroyed"
-    redirect_to @root_path
+    redirect_to root_path
   end
 
   def admin 
@@ -54,7 +55,9 @@ class PostsController < ApplicationController
 
   def authenticate
     authenticate_or_request_with_http_basic do |username, password|
-       username == Rails.application.credentials.admin[:username] && password == Rails.application.credentials.admin[:password]
+      admin_username = Rails.application.credentials.admin[:username]
+      admin_password = Rails.application.credentials.admin[:password]
+      session[:admin] = true if (username == admin_username && password == admin_password)
     end
   end
 

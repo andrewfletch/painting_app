@@ -1,6 +1,12 @@
 <h1>hi all</h1>
 <% @posts.each do |post| %>
-     <h1><%= link_to "post.title", post %></h1>
+     <h1><%= link_to post.title, post %></h1>
      <p><%= post.content %></p>
      <div><%= image_tag post.image_url.to_s %></div>
+     <% if session[:admin] then %>
+      <%= link_to edit_post_path(post), class: "btn btn-default" do %>
+        <span class="glyphicon glyphicon-align-left" aria-hidden="true">
+        </span>
+      <% end %>
+     <% end %>
 <% end %>

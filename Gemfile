@@ -34,6 +34,9 @@ gem 'bootstrap-sass', '~> 3.3.5'
 #for image handling
 gem 'carrierwave'
 
+# debugging
+gem 'pry'
+
 ###
 
 group :development, :test do
