@@ -2,4 +2,5 @@
 <% @posts.each do |post| %>
      <h1><%= link_to "post.title", post %></h1>
      <p><%= post.content %></p>
+     <div><%= image_tag post.image_url.to_s %></div>
 <% end %>

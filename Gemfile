@@ -28,8 +28,13 @@ gem 'jbuilder', '~> 2.7'
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.4.4', require: false
 
-# Extra stuff added by Andrew
+### Extra stuff added by Andrew
 gem 'bootstrap-sass', '~> 3.3.5'
+
+#for image handling
+gem 'carrierwave'
+
+###
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
