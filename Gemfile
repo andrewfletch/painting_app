@@ -37,6 +37,9 @@ gem 'carrierwave'
 # debugging
 gem 'pry'
 
+# aws stuff
+gem 'fog'
+
 ###
 
 group :development, :test do
