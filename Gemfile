@@ -29,7 +29,6 @@ gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.4', require: false
 
 ### Extra stuff added by Andrew
-gem 'bootstrap-sass', '~> 3.3.5'
 
 #for image handling
 gem 'carrierwave'
