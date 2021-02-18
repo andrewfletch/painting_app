@@ -38,7 +38,8 @@ gem 'carrierwave'
 gem 'pry'
 
 # aws stuff
-gem 'fog'
+# gem 'fog'
+gem 'carrierwave-aws'
 
 ###
 
