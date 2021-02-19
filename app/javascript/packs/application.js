@@ -9,6 +9,12 @@ import * as ActiveStorage from "@rails/activestorage"
 import "channels"
 import 'bootstrap'
 
+$(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+  })
+
 Rails.start()
 Turbolinks.start()
 ActiveStorage.start()
+
+
