@@ -29,12 +29,13 @@
     margin-top: 100px;
   }
 
-  .post_content {
-    font-family: 'sans-serif';
-    text-align: left;
-    padding: 1em;
-    visibility: hidden;
-  }
+.edit_photo {
+    background-color: rgb(190, 194, 209);
+}
+.delete_photo {
+    background-color: rgb(241, 101, 101);
+}
+
 
   .pagination {
     font-family: 'Rock Salt', cursive;

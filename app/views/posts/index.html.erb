@@ -9,9 +9,8 @@
           <%= image_tag(post.image_url.to_s, class: "img-fluid") %>
           <% if session[:admin] then %>
 
-            <%= link_to edit_post_path(post), class: "btn btn-default" do %>
-            <span class="glyphicon glyphicon-align-left" aria-hidden="true"></span>
-            <% end %>
+            <%= link_to "Edit", edit_post_path(post), class: "edit_photo btn btn-default" %>
+            <%= link_to "Delete", @post, method: :delete, data: { confirm: "Are you sure?"}, class: "delete_photo btn btn-default" %>
 
           <% end %>
 
