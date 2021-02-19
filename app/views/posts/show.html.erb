@@ -1,15 +1,19 @@
-<h1><%= @post.title %></h1>
-<p><%= @post.content %></p>
-<article class="post"> 
-<%= image_tag @post.image_url.to_s, alt: "Image", class: "img-responsive" %>
-</article>
-<% if session[:admin] then %>
- <%= link_to edit_post_path(@post), class: "btn btn-default" do %>
-   <span class="glyphicon glyphicon-align-left" aria-hidden="true">
-   </span> Edit
- <% end %>
- <%= link_to @post, method: :delete, data: { confirm: "Are you sure?"}, class: "btn btn-default" do %>
-   <span class="glyphicon glyphicon-trash" aria-hidden="true">
-   </span> Delete
- <% end %> 
-<% end %>
+<div class="container">
+  <div class="row justify-content-md-center">
+    <h1><%= @post.title %></h1>
+    <p><%= @post.content %></p>
+    <article class="post"> 
+    <%= image_tag @post.image_url.to_s, alt: "Image", class: "img-responsive" %>
+    </article>
+    <% if session[:admin] then %>
+    <%= link_to edit_post_path(@post), class: "btn btn-default" do %>
+    <span class="glyphicon glyphicon-align-left" aria-hidden="true">
+    </span> Edit
+    <% end %>
+    <%= link_to @post, method: :delete, data: { confirm: "Are you sure?"}, class: "btn btn-default" do %>
+    <span class="glyphicon glyphicon-trash" aria-hidden="true">
+    </span> Delete
+    <% end %> 
+    <% end %>
+  </div>
+</div>

@@ -1,12 +1,25 @@
-<h1>hi all</h1>
-<% @posts.each do |post| %>
-     <h1><%= link_to post.title, post %></h1>
-     <p><%= post.content %></p>
-     <div><%= image_tag post.image_url.to_s %></div>
-     <% if session[:admin] then %>
-      <%= link_to edit_post_path(post), class: "btn btn-default" do %>
-        <span class="glyphicon glyphicon-align-left" aria-hidden="true">
-        </span>
+
+<div class="container">
+  <div class="row justify-content-md-center">
+    <div class="col-8">
+
+      <% @posts.each do |post| %>
+ 
+          <h1><%= link_to post.title, post %></h1>
+          <%= image_tag(post.image_url.to_s, class: "img-fluid") %>
+          <% if session[:admin] then %>
+            <%= link_to edit_post_path(post), class: "btn btn-default" do %>
+              <span class="glyphicon glyphicon-align-left" aria-hidden="true">
+              </span>
+            <% end %>
+          <% end %>
+          <p><%= post.content %></p>
+
+          
       <% end %>
-     <% end %>
-<% end %>
+      <%= will_paginate @posts %>
+
+    </div>
+  </div>
+</div>
+
