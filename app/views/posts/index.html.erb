@@ -10,7 +10,7 @@
           <% if session[:admin] then %>
 
             <%= link_to "Edit", edit_post_path(post), class: "edit_photo btn btn-default" %>
-            <%= link_to "Delete", @post, method: :delete, data: { confirm: "Are you sure?"}, class: "delete_photo btn btn-default" %>
+            <%= link_to "Delete", post, method: :delete, data: { confirm: "Are you sure?"}, class: "delete_photo btn btn-default" %>
 
           <% end %>
 
