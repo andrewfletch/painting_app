@@ -17,7 +17,9 @@
 
           
       <% end %>
-      <%= will_paginate @posts %>
+      <div class="photo_pagination">
+        <%= will_paginate @posts, :page_links => false %>
+      </div>
 
     </div>
   </div>
